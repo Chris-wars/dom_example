@@ -59,7 +59,7 @@ function showRandomContentSection() {
     }
 };
 
-showRandomContentSection();
+// showRandomContentSection();
 
 
 if (messageDiv) {
@@ -67,3 +67,18 @@ if (messageDiv) {
     console.log("Data-Status von messageDiv:", messageDiv.getAttribute("data-status"));
 }
 
+
+function highlightContent(idToHighlight) {
+    document.querySelectorAll(".content").forEach(element => {
+        element.classList.remove('highlight');
+    });
+
+    const selectedElement = document.getElementById(idToHighlight);
+    if (selectedElement) {
+        selectedElement.classList.add('highlight');
+    }
+}
+
+const highlightIndex = Math.floor(Math.random() * 3);
+const highlightIds = ["content_first", "content_second", "content_third"];
+highlightContent(highlightIds[highlightIndex]);
